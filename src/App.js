@@ -5,6 +5,7 @@ import { IntlProvider, FormattedMessage } from 'react-intl';
 import Spanish from './lang/es.json';
 import French from './lang/fr.json';
 import English from './lang/en.json';
+import Select from 'react-select';
 
 const locale = navigator.language;
 let defaultMessages;
@@ -30,14 +31,28 @@ switch (locale) {
 }
 const App = () => {
   const [messages, setMessages] = React.useState(defaultMessages);
+  const options = [
+    { value: 'ESPAÑOL', label: 'Español' },
+    { value: 'strawberry', label: 'Francés' },
+    { value: 'vanilla', label: 'Inglés' },
+  ];
   return (
     <div className='app'>
       <IntlProvider locale={locale} messages={messages}>
         <RegisterForm />
-        <h2><FormattedMessage id='app:language_selector' /></h2>
-        <button onClick={() => setMessages(Spanish)}><FormattedMessage id='app:spanish' /></button>
-        <button onClick={() => setMessages(French)}><FormattedMessage id='app:french' /></button>
-        <button onClick={() => setMessages(English)}><FormattedMessage id='app:english' /></button>
+        <h2>
+          <FormattedMessage id='app:language_selector' />
+        </h2>
+        <button onClick={() => setMessages(Spanish)}>
+          <FormattedMessage id='app:spanish' />
+        </button>
+        <button onClick={() => setMessages(French)}>
+          <FormattedMessage id='app:french' />
+        </button>
+        <button onClick={() => setMessages(English)}>
+          <FormattedMessage id='app:english' />
+        </button>
+        <Select options={options} />
       </IntlProvider>
     </div>
   );
