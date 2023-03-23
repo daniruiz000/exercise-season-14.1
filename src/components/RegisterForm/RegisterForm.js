@@ -4,17 +4,13 @@ import './RegisterForm.scss';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 const RegisterForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [formData, setFormData] = React.useState(null);
 
   const onSubmit = (data) => {
     setFormData(data);
   };
+
   const { formatMessage } = useIntl();
 
   return (

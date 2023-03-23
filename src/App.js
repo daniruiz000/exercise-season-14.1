@@ -33,9 +33,9 @@ switch (locale) {
 const App = () => {
   const [messages, setMessages] = React.useState(defaultMessages);
   const options = [
-    { value: Spanish, label: 'Español' },
-    { value: French, label: 'Francés' },
-    { value: English, label: 'Inglés' },
+    { value: Spanish, label: <FormattedMessage id='app:spanish' /> },
+    { value: French, label: <FormattedMessage id='app:french' /> },
+    { value: English, label: <FormattedMessage id='app:english' /> },
   ];
 
   return (
