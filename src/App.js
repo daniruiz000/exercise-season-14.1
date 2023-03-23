@@ -29,13 +29,15 @@ switch (locale) {
 
     break;
 }
+
 const App = () => {
   const [messages, setMessages] = React.useState(defaultMessages);
   const options = [
-    { value: 'ESPAÑOL', label: 'Español' },
-    { value: 'strawberry', label: 'Francés' },
-    { value: 'vanilla', label: 'Inglés' },
+    { value: Spanish, label: 'Español' },
+    { value: French, label: 'Francés' },
+    { value: English, label: 'Inglés' },
   ];
+
   return (
     <div className='app'>
       <IntlProvider locale={locale} messages={messages}>
@@ -52,7 +54,7 @@ const App = () => {
         <button onClick={() => setMessages(English)}>
           <FormattedMessage id='app:english' />
         </button>
-        <Select options={options} />
+        <Select className='app__select' options={options} onChange={(event) => setMessages(event.value)} />
       </IntlProvider>
     </div>
   );
